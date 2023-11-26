@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title%}
+Invoice
+{% endblock %}
+
+{% block body %}
+
+<br>
+
+<a href="{% url 'add_invoice' %}" class="btn btn-dark btn-sm" role="button">Tambah Invoice</a>
+<a href="{% url 'update_laporan_inv' %}" class="btn btn-dark btn-sm">Update Laporan</a>
+
+<br>
+<br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Tanggal</th>
+      <th>Nama</th>
+      <th>Perusahaan</th>
+      <th>Opsi</th>
+      <th>Download</th>
+
+    </tr>
+  </thead>
+
+<tbody>
+
+{% for invoice in invoices %}
+<tr>
+  <td>{{invoice.tgl_inv}}</td>
+  <td>{{invoice.Nama_Client}}</td>
+  <td>{{invoice.Nama_Client.Perusahaan}}</td>
+  <td>
+    <a href="{% url 'edit_invoice' invoice.pk %}" class="btn btn-dark btn-sm" role="button">Edit</a>
+    <a href="{% url 'delete_invoice' invoice.pk %}" class="btn btn-danger btn-sm" role="button">X</a>
+    <a href="{% url 'generate_invoice' invoice.pk %}" class="btn btn-primary btn-sm" role="button">Generate</a>
+  </td>
+  <td><a href="static/invoice/{{invoice.Nama_Client}}.pdf" class="btn btn-dark btn-sm">Download</a></td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+
+{% endblock %}

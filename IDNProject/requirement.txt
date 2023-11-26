@@ -1,0 +1,5 @@
+djangorestframework
+docx-mailmerge
+plotly
+pandas
+pywin32

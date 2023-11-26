@@ -1,0 +1,28 @@
+{% if user.is_authenticated %}
+<li class="nav-item">
+	<a class="nav-link" href="{% url 'display_permintaan' %}">Menu</a>
+</li>
+
+<li class="nav-item">
+	<a class="nav-link" href="{% url 'user_logout' %}">Logout {{username}}</a>
+</li>
+{% else %}
+<li class="nav-item">
+	<a class="nav-link" href="{% url 'user_login' %}">Login</a>
+</li>
+{% endif %}
+
+
+
+	<div class="fl-module fl-module-separator fl-node-5cd98e124d4cf fl-visible-desktop-medium" data-node="5cd98e124d4cf">
+		<div class="fl-module-content fl-node-content">
+
+		</div>
+	</div>
+
+  <center>
+
+    <font color="white">© 2022 IDN Project (BINUS) | Designed by Aries Sadewa</font>
+  </center>
+</div>
+</div></div></div></div></div></div>

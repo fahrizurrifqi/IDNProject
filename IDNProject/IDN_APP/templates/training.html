@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title%}
+Training
+{% endblock %}
+
+
+{% block body %}
+<br>
+<a href="{% url 'add_training' %}" class="btn btn-dark btn-sm" role="button">Tambah Training</a>
+<br>
+<br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nomor</th>
+      <th>Nama Training</th>
+      <th>Harga</th>
+      <th>Lokasi</th>
+      <th>Keterangan</th>
+      <th>Opsi</th>
+    </tr>
+  </thead>
+
+<tbody>
+
+{% for training in trainings %}
+<tr>
+  <td>{{training.nomor}}</td>
+  <td>{{training.nama_training}}</td>
+  <td>{{training.harga}}</td>
+  <td>{{training.lokasi}}</td>
+  <td>{{training.keterangan}}</td>
+  <td>
+    <a href="{% url 'edit_training' training.pk %}" class="btn btn-dark btn-sm" role="button">Edit</a>
+    <a href="{% url 'delete_training' training.pk %}" class="btn btn-danger btn-sm" role="button">X</a>
+  </td>
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+
+{% endblock %}
